@@ -44,7 +44,7 @@ The CellNet web application is provided through Amazon Web Services. This walk-t
 
 ## 8.5 Down-sampling your reads
 
-##### In order to reduce upload times, we have capped the maximum file upload size to 2GB. We have provided a user-friendly command line tool to downsample FASTQ files.
+##### In order to reduce upload times, we have capped the maximum file upload size to 2GB. We have provided a user-friendly command line tool to downsample FASTQ files. Here is some [sample data](https://s3.amazonaws.com/cahanlab/remy.schwab/app_data).
 
 ```shell
 python down.py -n 5000000 reads.fastq
