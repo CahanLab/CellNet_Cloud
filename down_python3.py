@@ -2,6 +2,7 @@ from __future__ import division
 import random
 import argparse
 import sys
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("input", help="input FASTQ filename")
@@ -33,11 +34,13 @@ number_to_sample = args.number
 
 print("sampling " + str(number_to_sample) + " out of " + str(total_records) + " records")
 
+fname = os.path.basename(args.input)
+
 try:
     records_to_keep = set(random.sample(range(total_records + 1), number_to_sample))
     record_number = 0
     with open(args.input) as inFile:
-        with open("subset_"+args.input, "w") as output:
+        with open("subset_"+fname, "w") as output:
             for tag in inFile:
                 bases = inFile.readline()
                 sign = inFile.readline()
