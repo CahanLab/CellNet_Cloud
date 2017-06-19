@@ -37,14 +37,14 @@ print("sampling " + str(number_to_sample) + " out of " + str(total_records) + " 
 fname = os.path.basename(args.input)
 
 try:
-    records_to_keep = set(random.sample(range(total_records + 1), number_to_sample))
+    records_to_keep = set(random.sample(range(total_records), number_to_sample))
     record_number = 0
     with open(args.input) as inFile:
         with open("subset_"+fname, "w") as output:
             for tag in inFile:
-                bases = inFile.next()
-                sign = inFile.next()
-                quality = inFile.next()
+                bases = next(inFile)
+                sign = next(inFile)
+                quality = next(inFile)
                 if record_number in records_to_keep:
                     output.write(tag)
                     output.write(bases)
@@ -52,8 +52,8 @@ try:
                     output.write(quality)
                 record_number += 1
 except ValueError as e:
-    if e.message != "sample larger than population":
+    if str(e) != "Sample larger than population or is negative":
         raise
     else:
         print("Desired number of reads is greater than number of reads in original file.")
-        print("No downsampling is necessary.")
+        print("No down-sampling is necessary.")
