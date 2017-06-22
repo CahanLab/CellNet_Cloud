@@ -61,7 +61,7 @@ python down.py -n 5000000 reads.fastq
     tar cvfz data.tgz path/to/reads
     ```
 
-    If you are using MacOS we recommended adding the modifier:
+    If you are using MacOS we recommend adding the modifier:
     ```shell
     COPYFILE_DISABLE=1 tar cvfz data.tgz path/to/reads
     ```
