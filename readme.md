@@ -1,5 +1,7 @@
 # The CellNet RNA-Seq Web Application
 
+CellNet is a computational tool to assess the establishment of cell type specific gene regulatory networks in engineered cells. Previously we built a web application that allows researchers to upload microarray data and analyze it using CellNet. We recently adapted CellNet to analyze RNA sequencing data but processing this type of data is to computationally intensive to analyze on our own servers. Below is a walkthrough for how to use the cloud-based CellNet RNASeq web application.
+
 The CellNet web application is provided through Amazon Web Services. This walk-though will assume that you already have an account with AWS.
 
 ## 1. Select the Cloud Formation service from the AWS services menu
@@ -54,10 +56,16 @@ python down.py -n 5000000 reads.fastq
 
 ## 9. Homepage
 ![homepage](images/home.png)
-* "Compressed read files”: FASTQ files files should be uploaded as a gzip compressed TAR archive! See an example command to compress read data in terminal:
+* "Compressed read files”: In addition to being downsampled, FASTQ files should be uploaded as a GZIP compressed TAR archive! See an example command to compress read data in terminal:
     ```shell
     tar cvfz data.tgz path/to/reads
     ```
+
+    If you are using MacOS we recommended adding the modifier:
+    ```shell
+    COPYFILE_DISABLE=1 tar cvfz data.tgz path/to/reads
+    ```
+    
 * CellNet will by default map to the mouse transcriptome. Click the “Human origin” button if your data is from human cells. 
 * Hit submit
 
