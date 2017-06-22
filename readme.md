@@ -75,7 +75,7 @@ python down.py -n 5000000 reads.fastq
 
 ![done](images/done.png)
 
-##### If you are seeing this then your job has finished. Check your spam folder... [ we're working on this :) ]
+##### If you are seeing this then your job has finished.
 
 ##### Feel free to make an issue on this repository!
 
