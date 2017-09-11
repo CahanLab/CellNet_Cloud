@@ -20,6 +20,8 @@ The CellNet web application is provided through Amazon Web Services. This walk-t
 
 >https://s3.amazonaws.com/cahanlab/remy.schwab/CellNet_publicStack
 
+Clicking the link is not necessary. You only need to copy and paste it.
+
 ## 4. Name your stack
 
 ![Name](images/details.png)
