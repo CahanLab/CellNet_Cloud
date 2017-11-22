@@ -12,7 +12,7 @@ The CellNet web application is provided through Amazon Web Services. This walk-t
 
 ![Cloud Formation](images/cloudFormation.png)
 
-##### Click "Create New Stack"
+Click "Create New Stack"
 
 ## 3. Paste the provided link to the Stack Template:
 
@@ -34,13 +34,13 @@ Clicking the link is not necessary. You only need to copy and paste it.
 
 ![review](images/review.png)
 
-##### Before you create the stack please skim the description. Creating the stack will launch a virtual machine costing ~$1.68 per hour.
+Before you create the stack please skim the description. Creating the stack will launch a virtual machine costing ~$1.68 per hour.
 
 ## 7. The instance should take about five minutes to boot up
 
 ![events](images/events.png)
 
-##### Amazon will let you know when everything is supposed to be ready but the link to the web application may still be unavailable for a few minutes after Amazon says it’s ready. The link will be available under the outputs tab.
+Amazon will let you know when everything is supposed to be ready but the link to the web application may still be unavailable for a few minutes after Amazon says it’s ready. The link will be available under the outputs tab.
 
 ## 8. Click the link! This will take you to the web application
 
@@ -48,7 +48,7 @@ Clicking the link is not necessary. You only need to copy and paste it.
 
 ## 8.5 Down-sampling your reads
 
-##### In order to reduce upload times, we have capped the maximum file upload size to 2GB. We have provided a user-friendly command line tool to downsample FASTQ files. Here is some [sample data](https://s3.amazonaws.com/cahanlab/remy.schwab/app_data).
+In order to reduce upload times, we have capped the maximum file upload size to 4GB. We have provided a user-friendly command line tool to downsample FASTQ files. Here is some [sample data](https://s3.amazonaws.com/cahanlab/remy.schwab/app_data).
 
 ![](images/pre.jpg)
 
@@ -82,15 +82,15 @@ This is what you should see if the downsampling process has finished successfull
 
 ![progress](images/progress.png)
 
-##### The arrow is pointing to a slow step in the process. Do not be discouraged if the bar stays here for as long as ~5 minutes. The "Cancel Job" button will terminate any CellNet processes and return you to the homepage. ***IT DOES NOT TERMINATE THE INSTANCE***
+The arrow is pointing to a slow step in the process. Do not be discouraged if the bar stays here for as long as ~5 minutes. The "Cancel Job" button will terminate any CellNet processes and return you to the homepage. ***IT DOES NOT TERMINATE THE INSTANCE***
 
 ## 12. Done
 
 ![done](images/done.png)
 
-##### If you are seeing this then your job has finished.
+If you are seeing this then your job has finished.
 
-##### Feel free to make an issue on this repository!
+Feel free to make an issue on this repository!
 
-##### - Remy
+- Remy
 
