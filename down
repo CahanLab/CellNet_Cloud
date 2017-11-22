@@ -24,17 +24,17 @@ fastq_files = os.listdir(args.input)
 
 for fastq in fastq_files:
 
-    print("counting records....")
+    print("\tcounting records....")
     with open(args.input+"/"+fastq) as inRead:
         num_lines = sum([1 for line in inRead])
     if int(num_lines % 4) != 0:
-        print("File Corrupted: Number of lines in FASTQ file not divisible by 4. Is file decompressed?")
+        print("FILE CORRUPTED: Number of lines in FASTQ file not divisible by 4. Is file decompressed?")
         exit()
     total_records = int(num_lines / 4)
 
     number_to_sample = args.number
 
-    print("sampling " + str(number_to_sample) + " out of " + str(total_records) + " records")
+    print("\tsampling " + str(number_to_sample) + " out of " + str(total_records) + " records")
 
     try:
         records_to_keep = set(random.sample(range(total_records), number_to_sample))
@@ -61,10 +61,10 @@ for fastq in fastq_files:
         else:
             raise
 
-print("Compressing downsampled reads...")
+print("Compressing downsampled reads")
 os.system("COPYFILE_DISABLE=1 tar cvfz compressed_reads.tgz "+output_dir)
 
 if os.path.getsize("compressed_reads.tgz") >= 4000000000:
-    print("Your archive contains too many FASTQ files. Max size is 4GB.")
+    print("WARNING: Your archive contains too many FASTQ files. Max size is 4GB.")
 else:
-    print("Archive file size is "+os.path.getsize("compressed_reads.tgz"))
+    print("Archive file size is ~"+str(os.path.getsize("compressed_reads.tgz")/1000000000)+"GB")
