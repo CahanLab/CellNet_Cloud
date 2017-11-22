@@ -50,7 +50,7 @@ Clicking the link is not necessary. You only need to copy and paste it.
 
 ##### In order to reduce upload times, we have capped the maximum file upload size to 2GB. We have provided a user-friendly command line tool to downsample FASTQ files. Here is some [sample data](https://s3.amazonaws.com/cahanlab/remy.schwab/app_data).
 
-![](images/pre)
+![](images/pre.jpg)
 
 This picture shows what your setup should look like. Put all of the FASTQ files you plan on uploading in one directory. For simplicity we recommend you put the downsample executable in the same directory as the directory containing your FASTQ files. Below is an example command you would use to sample 5 million reads from each FASTQ file.
 
@@ -60,11 +60,11 @@ This picture shows what your setup should look like. Put all of the FASTQ files 
 ./down -n 5000000 FASTQ
 ```
 
-![](images/run)
+![](images/run.jpg)
 
 You should see this output after entering in the above command. A temporary directory containing the downsampled files will appear.
 
-![](images/dun)
+![](images/dun.jpg)
 
 This is what you should see if the downsampling process has finished successfully. The final output is a GZipped compressed, TAR archive. This can be directly uploaded to CellNet.
 
