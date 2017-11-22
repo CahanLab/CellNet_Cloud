@@ -50,25 +50,28 @@ Clicking the link is not necessary. You only need to copy and paste it.
 
 ##### In order to reduce upload times, we have capped the maximum file upload size to 2GB. We have provided a user-friendly command line tool to downsample FASTQ files. Here is some [sample data](https://s3.amazonaws.com/cahanlab/remy.schwab/app_data).
 
+![](images/pre)
+
+This picture shows what your setup should look like. Put all of the FASTQ files you plan on uploading in one directory. For simplicity we recommend you put the downsample executable in the same directory as the directory containing your FASTQ files. Below is an example command you would use to sample 5 million reads from each FASTQ file.
+
+
+
 ```shell
-python down.py -n 5000000 reads.fastq
+./down -n 5000000 FASTQ
 ```
 
-![](images/down.png)
+![](images/run)
+
+You should see this output after entering in the above command. A temporary directory containing the downsampled files will appear.
+
+![](images/dun)
+
+This is what you should see if the downsampling process has finished successfully. The final output is a GZipped compressed, TAR archive. This can be directly uploaded to CellNet.
 
 ## 9. Homepage
 ![homepage](images/home.png)
-* "Compressed read files”: In addition to being downsampled, FASTQ files should be uploaded as a GZIP compressed TAR archive! See an example command to compress read data in terminal:
-    ```shell
-    tar cvfz data.tgz path/to/reads
-    ```
-
-    If you are using MacOS we recommend adding the modifier:
-    ```shell
-    COPYFILE_DISABLE=1 tar cvfz data.tgz path/to/reads
-    ```
-    
-* CellNet will by default map to the mouse transcriptome. Click the “Human origin” button if your data is from human cells. 
+  
+* CellNet is able to compare to both the Human and Mouse transcriptome. Please specify which species your data is coming from. 
 * Hit submit
 
 ## 10. Construct Sample Table
