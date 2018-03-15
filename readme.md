@@ -20,7 +20,7 @@ The local upload limit is capped at 4GB.
 
 If you have >4GB of sequencing data but prefer not to upload your files to S3, we have provided a command line script at the bottom of this README for down-sampling reads to a lower read depth, which you can use to abridge your total file size to ≤4GB.
 
-## 1. Login to AWS and select the Cloud Formation service from the AWS services menu.
+## 1. Login to AWS and select Cloud Formation from the Services menu:
 
 ![Services](images/services.png)
 
@@ -28,7 +28,7 @@ If you have >4GB of sequencing data but prefer not to upload your files to S3, w
 
 ![Cloud Formation](images/cloudFormation.png)
 
-Click "Create New Stack"
+Click "Create New Stack."
 
 ## 3. Paste the provided link to the Stack Template:
 
@@ -36,13 +36,13 @@ Paste the following link:
 
 >https://s3.amazonaws.com/cahanlab/remy.schwab/Stack_Templates/CellNet_publicStackTemplate.json
 
-into the 'Specify an Amazon S3 template URL'
+into the 'Specify an Amazon S3 template URL' field.
 
 ![template](images/templateSelect.png)
 
 Clicking the link is not necessary. You only need to copy and paste it.
 
-## 4. Name your stack as desired
+## 4. Name your stack as desired:
 
 ![Name](images/details.png)
 
@@ -75,7 +75,7 @@ This will take you to the front page of the Web Application.
 * Input your email address, as results will be emailed as an attachment.
 * Directly upload previously compressed archive of sequencing files **OR** Specify path to FASTQ folder on S3 (See Step 0). Accessing S3 will require your S3 Access ID and Secret Access Key.
 * CellNet is able to compare to both the Human and Mouse transcriptome. Please specify which species your data is coming from. 
-* Submit
+* Submit.
 
 **It may take several minutes to an hour to proceed to the next page depending on the size of the files, as both transfer and decompression is finished before the next step.**
 
@@ -95,7 +95,7 @@ When finished, click Submit.
 
 ![progress](images/progress.png)
 
-The arrow is pointing to a slow step in the process. Do not be discouraged if the bar stays here for as long as 30 minutes. 
+Several steps in this progress are slow, e.g. sequence read mapping and quantification. The entire process may take 30 minutes - several hours.
 
 You can use the "Cancel Job" button to terminate the entire process and return you to the homepage. However, ***IT WILL NOT TERMINATE THE INSTANCE***
 
@@ -115,11 +115,12 @@ This will terminate the running EC2 instance. AWS will continue to charge the us
 
 
 ---
+---
 
 
 ## Down-sampling your reads
 
-We have provided a command line tool to downsample FASTQ files. 
+We have provided a command line tool to downsample FASTQ files. (See Step 0)
 
 Download `down.py`.
 
