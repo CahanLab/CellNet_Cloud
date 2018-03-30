@@ -16,19 +16,24 @@ if not args.number:
     print("No sample size specified. Defaulting to five million reads.")
     args.number = 5000000
 
-# CREATE OUTPUT DIRECTORY
-output_dir = "subset_"+args.input
-os.mkdir(output_dir)
+
 # LIST FILES TO BE DOWN-SAMPLED
 fastq_files = os.listdir(args.input)
 
+if int(len(fastq_files)) <= 0:
+    print("No files in listed directory")
+    exit()
+# CREATE OUTPUT DIRECTORY
+output_dir = "subset_"+args.input
+os.mkdir(output_dir)    
 for fastq in fastq_files:
 
     print("\tcounting records....")
     with open(args.input+"/"+fastq) as inRead:
         num_lines = sum([1 for line in inRead])
+        print("Num lines:" + str(num_lines) )
     if int(num_lines % 4) != 0:
-        print("FILE CORRUPTED: Number of lines in FASTQ file not divisible by 4. Is file decompressed?")
+        print("FILE " + fastq + " CORRUPTED: Number of lines in FASTQ file not divisible by 4. Is file decompressed?")
         exit()
     total_records = int(num_lines / 4)
 

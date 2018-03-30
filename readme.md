@@ -122,21 +122,20 @@ This will terminate the running EC2 instance. AWS will continue to charge the us
 
 We have provided a command line tool to downsample FASTQ files. (See Step 0)
 
-Download `down.py`.
+Download [`down.py`](https://github.com/pcahan1/CellNet_Cloud/raw/master/down.py).
 
-Here is some [sample data](https://s3.amazonaws.com/cahanlab/remy.schwab/app_data).
+To help you test out the down sampling procedure, we have provided two small fastq files of RNA-Seq from mouse. They are compressed:
+
+[example fastq 1](https://s3.amazonaws.com/cellnet-rnaseq/webapp/test1.fq.gz)
+[example fastq 2](https://s3.amazonaws.com/cellnet-rnaseq/webapp/test2.fq.gz)
 
 ![](images/pre.jpg)
 
-This picture shows what your setup should look like. Put all of the FASTQ files you plan on uploading in one directory. For simplicity we recommend you put the `down.py` executable in the same directory as the directory containing your FASTQ files. Below is an example command you would use to sample 5 million reads from each FASTQ file.
+The screenshot above shows what your setup should look like. Put all of the FASTQ files you plan on uploading in one directory. For simplicity, we recommend that you put the `down.py` file in the same directory as the directory containing your FASTQ files. Below is an example command you would use to sample 1.5 million reads from each FASTQ file. Note that you need to de-compress the FASTQs.
 
 ```shell
-./down -n 5000000 FASTQ
+python down.py -n 1000000 FASTQ
 ```
-
-![](images/run.jpg)
-
-You should see this output after entering in the above command. A temporary directory containing the downsampled files will appear.
 
 ![](images/dun.jpg)
 
